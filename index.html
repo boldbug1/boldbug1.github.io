@@ -7,6 +7,10 @@
 <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&family=SUSE+Mono:ital,wght@0,100..800;1,100..800&family=Sora:wght@100..800&display=swap" rel="stylesheet">
         <title>About Me</title>
         <style>
+            /* Prevent blue highlight on tap */
+        * {
+            -webkit-tap-highlight-color: transparent;
+                }
            
             body {
                 background-color: F9F7F7;
@@ -17,6 +21,12 @@
             -webkit-user-select: none;
             -moz-user-select: none;
             -ms-user-select: none;
+            flex-wrap: wrap;
+            }
+
+            body:active {
+                background-color: none;
+                color: none;
             }
          .textbody {
             font-family: "SUSE Mono", serif;
@@ -176,6 +186,48 @@
                 font-size: 18px;
                 transition: all 0.3s ease;
                 transition: all 0.3s ease-out;
+            }
+
+            .Project-box {
+               width: 200px;
+               height: 100px;
+               background-color: #e1ecff;
+               border-radius: 20px;
+               margin: 5px;
+               flex-wrap: wrap;
+               transition: all 0.3s ease;
+               align-items: flex-end;
+                
+               
+            }
+            .Project-box img {
+                width: 100%;
+                height: 100%;
+                border-radius: 20px;
+                object-fit: cover;
+                flex-wrap: wrap;
+            }
+
+            .Project-box h3 {
+                color: black;
+                margin-top: 2px;
+                font-family: "SUSE Mono", serif;
+                text-align: center;
+                font-size: 0.8em;
+        
+            }
+            .Projects{
+                display: flex;
+                flex-wrap: wrap;
+                width: 100%;
+            }
+
+            .Project-box:hover{
+                width: 300px;
+                height: 200px;
+                cursor:pointer ;
+                transition: all 0.3s ease;
+            }
             
         </style>
     </head>
@@ -189,19 +241,30 @@
 
 
 
-<div class="langbox"><img src="my-website/file_type_html_icon_130541.png" alt="HTML" class="lang-icon">HTML</div>
-<div class="langbox"><img src="my-website/file_type_css_icon_130661.png" alt="CSS" class="lang-icon">CSS</div>
-<div class="langbox"><img src="my-website/file_type_js_official_icon_130509.png" alt="JS" class="lang-icon">JS</div>
-<div class="langbox"><img src="my-website/python_18894.png" alt="PYTHON" class="lang-icon">PYTHON</div>
-<div class="langbox"><img src="my-website/react_original_logo_icon_146374.png" alt="REACT" class="lang-icon">REACT</div>
-<div class="langbox"><img src="my-website/c_original_logo_icon_146611.png" alt="C" class="lang-icon">C</div>
+<div class="langbox"><img src="file_type_html_icon_130541.png" alt="HTML" class="lang-icon">HTML</div>
+<div class="langbox"><img src="file_type_css_icon_130661.png" alt="CSS" class="lang-icon">CSS</div>
+<div class="langbox"><img src="file_type_js_official_icon_130509.png" alt="JS" class="lang-icon">JS</div>
+<div class="langbox"><img src="python_18894.png" alt="PYTHON" class="lang-icon">PYTHON</div>
+<div class="langbox"><img src="react_original_logo_icon_146374.png" alt="REACT" class="lang-icon">REACT</div>
+<div class="langbox"><img src="c_original_logo_icon_146611.png" alt="C" class="lang-icon">C</div>
 
 
 
 
 </div>
 <div class="p-header"><h1>Projects</h1></div>
-<div class="Project-box"></div>
+<div class="Projects">
+<div class="Project-box"><img src="ASTROFONE I.jpg">
+<h3>Astrophone</h3>
+</div>
+<div class="Project-box"><img src="ASTROFONE I.jpg">
+<h3>Astrophone</h3>
+</div>
+<div class="Project-box"><img src="ASTROFONE I.jpg">
+<h3>Astrophone</h3>
+</div>
+</div>
+
 <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
 <script>
     var typed = new Typed('.autotype', {
@@ -216,4 +279,3 @@
 </script>
     </body>
 </html>
-
