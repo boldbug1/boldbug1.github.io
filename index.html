@@ -1,5 +1,7 @@
 <html>
     <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
         <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&family=SUSE+Mono:ital,wght@0,100..800;1,100..800&family=Sora:wght@100..800&display=swap" rel="stylesheet">
@@ -7,27 +9,35 @@
         <style>
            
             body {
-                background-color: #d2edff;
-                position: fixed;
+                background-color: F9F7F7;
+                margin: 0;
+                padding: 0;
+                margin: 5px;
+                 user-select: none;       /* Prevents text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
             }
          .textbody {
             font-family: "SUSE Mono", serif;
-            margin: 20px;
+            margin: 20px auto;
             margin-left: 1px;
             line-height: 1.6;
             text-align: justify;
-            width: 50%;
-            color: #333;
+            width: 90%;
+            color: #112D4E;
             user-select: none;       /* Prevents text selection */
             -webkit-user-select: none;
             -moz-user-select: none;
             -ms-user-select: none;
-            background-color: white;
+            background-color: whitesmoke;
             border-radius: 10px;
             padding: 10px;
-            box-shadow: 3px 10px 1px rgba(13, 13, 109,0.5);
+            box-shadow: 3px 10px 1px rgba(63, 114, 175, 1);
             display: block;
-            margin-left: 200px;
+            font-size: 1.2em;
+            flex-wrap: wrap;
+            transition: all 0.3s ease-out;
 
 
 }
@@ -39,9 +49,9 @@
                 font-weight: bold;
                 text-align: left;
                 margin-top: 20px;
-                color: rgb(50, 115, 219);
+                color: 3F72AF;
                 cursor: pointer;
-                margin-left: 200px;
+                width: 100%;
 
             }
 
@@ -72,20 +82,23 @@
                 font-weight: bold;
                 text-align: left;
                 margin-top: 20px;
-                color: rgb(50, 115, 219);
+                color: 3F72AF;
                 cursor: pointer;
-                margin-left: 200px;
                 font-family: 'Sora', sans-serif;
                 display: flex;
                 width: 100%;
+                transition: all 0.3s ease-out;
+
                 
               
 
             }
             .Techstack {
                 display: flex;
-                margin-left: 200px;
+                flex-wrap: wrap;
                 margin-top :0px;
+                transition: all 0.3s ease-out;
+
 
             }
             .langbox {
@@ -98,8 +111,10 @@
                 display: flex;
                 align-items: center;
                 margin-top: 0px;
-                box-shadow: 3px 4px 1px rgba(16, 113, 209, 0.978);
+                box-shadow: 3px 4px 1px  rgba(63, 114, 175, 1);
                 cursor: pointer;
+                transition: all 0.3s ease-out;
+
             }
             .lang-icon {
               width: 30px;
@@ -110,68 +125,58 @@
                 
             }
 
-            .sidebar {
-                width: 100px;
-                height : 100vh;
-                background-color: rgb(23, 45, 79);
-                position: fixed;
-                display: block;
-                top:0px;
-                left: 0px;
-                margin: 0px;
-                padding-right: 100px;
-                z-index: -1;
+            .langbox:hover {
+                background-color: #e1ecff;
+                box-shadow: 3px 6px 1px rgba(63, 114, 175, 0.8);
+                transform: translateY(-2px);
+                transition: all 0.3s ease;
+            }
+            .langbox:active {
+                box-shadow: 3px 4px 1px rgba(63, 114, 175, 1);
+                transform: translateY(0px);
+                transition: all 0.1s ease;
+            }
+            .textbody:hover {
+                box-shadow: 3px 10px 1px rgba(63, 114, 175, 1);
+                transform: translateY(-2px);
+                transition: all 0.3s ease;
             }
 
-            .Me {
-                margin-top: 90px;
-                margin-left: 20px;
+            .lang-head:hover {
+                color: #2487c1;
                 cursor: pointer;
-                position: absolute;
-                animation: moveDown 2s ;
+                margin: 0px;
+                padding: 0px;
+                transform: translateY(-2px);
+                font-size: 18px;
+                transition: all 0.3s ease;
+                transition: all 0.3s ease-out;
+                
             }
-               @keyframes moveDown {
-      from {
-        margin-top: 0px;
-        opacity: 0;
-      }
-      to {
-        margin-top: 90px;
-        opacity: 1;
-      }
-    }
-            .bio
+
+            .p-header
             {
-                color: fff;
-                width:200px;
+                font-size: 17px;
+                font-weight: bold;
+                text-align: left;
+                margin-top: 20px;
+                color: 3F72AF;
+                cursor: pointer;
+                font-family: 'Sora', sans-serif;
                 display: flex;
-                font-size: 20px;
-                margin-left: 20px;
-                align-items: center;
-                margin-top: 250px;
-               
-                font-family: "SUSE Mono", serif;
-                text-shadow: 2px 2px 10px white;
-                display: absolute;
-
-
-
+                width: 100%;
+                transition: all 0.3s ease-out;
             }
-            .age {
-                color: fff;
-                width:200px;
-                display: flex;
-                font-size: 15px;
-                margin-left: 50px;
-                align-items: center;
-                margin-top: 0px;
-                font-family: "SUSE Mono", serif;
-                text-shadow: 2px 2px 10px white;
-            }
-            .indiaicon {
-                width: 20px;
-                margin-left: 0.5px;
-            }
+            .p-header:hover {
+                color: #2487c1;
+                cursor: pointer;
+                margin: 0px;
+                padding: 0px;
+                transform: translateY(-2px);
+                font-size: 18px;
+                transition: all 0.3s ease;
+                transition: all 0.3s ease-out;
+            
         </style>
     </head>
     <div class="Header">‎ <span class="autotype">ello</span></div>
@@ -184,26 +189,19 @@
 
 
 
-<div class="langbox"><img src="my-website/file_type_html_icon_130541.png" alt="HTML" class="lang-icon">HTML</div>
-<div class="langbox"><img src="my-website/file_type_css_icon_130661.png" alt="CSS" class="lang-icon">CSS</div>
-<div class="langbox"><img src="my-website/file_type_js_official_icon_130509.png" alt="JS" class="lang-icon">JS</div>
-<div class="langbox"><img src="my-website/python_18894.png" alt="PYTHON" class="lang-icon">PYTHON</div>
-<div class="langbox"><img src="my-website/react_original_logo_icon_146374.png" alt="REACT" class="lang-icon">REACT</div>
-<div class="langbox"><img src="my-website/c_original_logo_icon_146611.png" alt="C" class="lang-icon">C</div>
+<div class="langbox"><img src="file_type_html_icon_130541.png" alt="HTML" class="lang-icon">HTML</div>
+<div class="langbox"><img src="file_type_css_icon_130661.png" alt="CSS" class="lang-icon">CSS</div>
+<div class="langbox"><img src="file_type_js_official_icon_130509.png" alt="JS" class="lang-icon">JS</div>
+<div class="langbox"><img src="python_18894.png" alt="PYTHON" class="lang-icon">PYTHON</div>
+<div class="langbox"><img src="react_original_logo_icon_146374.png" alt="REACT" class="lang-icon">REACT</div>
+<div class="langbox"><img src="c_original_logo_icon_146611.png" alt="C" class="lang-icon">C</div>
 
 
 
 
 </div>
-<div class="sidebar">
-    <div class="Me">
-        <img src="my-website/Ankush.png.jpg" alt="Ankush" style="width:150px;height:150px; border-radius: 50%;">
-    </div>
-    <div class="bio">Ankush Tiwari</div>
-     <div class ="age">18      |   India<img src="my-website/1f1ee-1f1f3.svg" class="indiaicon"></div>
-</div>
-
-
+<div class="p-header"><h1>Projects</h1></div>
+<div class="Project-box"></div>
 <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
 <script>
     var typed = new Typed('.autotype', {
@@ -216,7 +214,5 @@
 
     });
 </script>
-
     </body>
 </html>
-
