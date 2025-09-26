@@ -22,7 +22,16 @@
             -moz-user-select: none;
             -ms-user-select: none;
             flex-wrap: wrap;
+            height: 100vh;
+            width: 100vw;
+            position: relative;
             }
+
+            html {
+                height: 100%;
+                width: 100%;
+            }
+
 
             body:active {
                 background-color: none;
@@ -58,7 +67,7 @@
                 font-size: 36px;
                 font-weight: bold;
                 text-align: left;
-                margin-top: 20px;
+                margin-top: 10px;
                 color: 3F72AF;
                 cursor: pointer;
                 width: 100%;
@@ -87,7 +96,7 @@
                 color: #114582a4;
                 text-decoration: none;
             }
-            .lang-head {
+            .skill-head {
                 font-size: 17px;
                 font-weight: bold;
                 text-align: left;
@@ -152,7 +161,7 @@
                 transition: all 0.3s ease;
             }
 
-            .lang-head:hover {
+            .skill-head:hover {
                 color: #2487c1;
                 cursor: pointer;
                 margin: 0px;
@@ -229,6 +238,87 @@
                 transition: all 0.3s ease;
             }
             
+            .edu-head h3 {
+                font-family: 'Sora', sans-serif;
+                font-size: 30px;
+                font-weight: bold;
+                text-align: left;
+                margin-top: 20px;
+                color: 3F72AF;
+                cursor: pointer;
+                width: 100%;
+                margin-bottom:20px ;
+                transition: all 0.3s ease-out;
+            }
+
+               .edu-head h3:hover {
+                color: #2487c1;
+                cursor: pointer;
+                margin: 0px;
+                padding: 0px;
+                transform: translateY(-2px);
+                font-size: 33px;
+                transition: all 0.3s ease;
+                transition: all 0.3s ease-out;
+                margin-top: 20px;
+                margin-bottom: 20px;
+            }
+            .course 
+            {
+            width: 80%;
+            height: fit-content;
+            background-color: #e5e7eb;
+            margin: 0px;
+            padding: 20px;
+            align-items: center;
+            border-radius: 10px;
+            font-family: "SUSE mono",sans-serif;
+            box-shadow: 4px 10px 1px rgba(63, 114, 175, 1);
+            font-weight:bold ;
+            }
+
+            .course:hover {
+                box-shadow: 4px 10px 1px ;
+                transform: translateY(-2px);
+                transition: all 0.3s ease;
+                background-color: #062f47f7;
+                color: white;
+            }
+
+            .course p2 {
+                margin: 0px;
+                padding: 0px;
+                font-size: 0.7em;
+                font-weight: normal;
+
+            }
+
+            .status  {
+                color: #21e73cf2;
+                margin-left: 5px;
+            }
+
+            .Footer {
+                    position: relative;
+                    left: 0;
+                    bottom: 0;
+                    width: 100%;
+                    height: 100px;
+                    top :100px;
+                    background-color: rgb(57, 127, 202)
+            }
+
+            .Footer p {
+                color: white;
+                text-align: center;
+                padding: 30px;
+                font-family: "SUSE Mono", serif;
+                font-size: 1em;
+                user-select: none;       /* Prevents text selection */
+                -webkit-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+            }
         </style>
     </head>
     <div class="Header">‎ <span class="autotype">ello</span></div>
@@ -236,35 +326,27 @@
         <div class="textbody">I’m <span class ="name">Ankush</span>, An ambitious web developer born in the city of <a href="https://www.google.com/search?q=muzaffarpur+bihar+india" class="Address">Muzaffarpur, Bihar, India</a>. With hands-on experience in building and delivering multiple web projects, I specialize in creating clean, responsive, and user-friendly websites. My journey from a small town to the tech world reflects my dedication, precision, and hunger to grow. I take pride in delivering work on time with unmatched accuracy, and I’m always eager to learn, adapt, and take on new challenges that push my limits.
 
 </div>
-<div class="lang-head"><h1>Languages</h1></div>
+<div class="skill-head"><h1>Skills</h1></div>
 <div class="Techstack">
 
 
 
-<div class="langbox"><img src="my-website/file_type_html_icon_130541.png" alt="HTML" class="lang-icon">HTML</div>
-<div class="langbox"><img src="my-website/file_type_css_icon_130661.png" alt="CSS" class="lang-icon">CSS</div>
-<div class="langbox"><img src="my-website/file_type_js_official_icon_130509.png" alt="JS" class="lang-icon">JS</div>
-<div class="langbox"><img src="my-website/python_18894.png" alt="PYTHON" class="lang-icon">PYTHON</div>
-<div class="langbox"><img src="my-website/react_original_logo_icon_146374.png" alt="REACT" class="lang-icon">REACT</div>
-<div class="langbox"><img src="my-website/c_original_logo_icon_146611.png" alt="C" class="lang-icon">C</div>
-
-
-
-
+<div class="langbox"><img src="file_type_html_icon_130541.png" alt="HTML" class="lang-icon">HTML</div>
+<div class="langbox"><img src="file_type_css_icon_130661.png" alt="CSS" class="lang-icon">CSS</div>
+<div class="langbox"><img src="file_type_js_official_icon_130509.png" alt="JS" class="lang-icon">JS</div>
+<div class="langbox"><img src="python_18894.png" alt="PYTHON" class="lang-icon">PYTHON</div>
+<div class="langbox"><img src="react_original_logo_icon_146374.png" alt="REACT" class="lang-icon">REACT</div>
+<div class="langbox"><img src="c_original_logo_icon_146611.png" alt="C" class="lang-icon">C</div>
 </div>
-<div class="p-header"><h1>Projects</h1></div>
-<div class="Projects">
-<div class="Project-box"><img src="my-website/c_original_logo_icon_146611.png">
-<h3>Astrophone</h3>
+<!--education section -->
+<div class="edu-head" ><h3>Education</h3></div>
+<div class="edu">
+    <div class="course"><p>BCA(bachelor of applications)     <span class="status">current</span></p>
+    <p2>B.R.A.B.U Muzaffarpur,Bihar</p></div>
 </div>
-<div class="Project-box"><img src="my-website/c_original_logo_icon_146611.png">
-<h3>Astrophone</h3>
-</div>
-<div class="Project-box"><img src="my-website/c_original_logo_icon_146611.png">
-<h3>Astrophone</h3>
-</div>
-</div>
-
+<!--contact section-->
+<div class="Footer"><p>Contact me : kumarankush08146@gmail.com</p></div>
+<!--Scripts section-->
 <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
 <script>
     var typed = new Typed('.autotype', {
@@ -274,9 +356,7 @@
         loop: true,
         showCursor:true,
         cursorChar: '_',
-
     });
 </script>
     </body>
 </html>
-
