@@ -1,30 +1,31 @@
 <html>
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
         <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&family=SUSE+Mono:ital,wght@0,100..800;1,100..800&family=Sora:wght@100..800&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&family=SUSE+Mono:ital,wght@0,100..800;1,100..800&family=Sora:wght@100..800&display=swap" rel="stylesheet">
         <title>About Me</title>
         <style>
             /* Prevent blue highlight on tap */
         * {
             -webkit-tap-highlight-color: transparent;
-                }
+            
+          }
            
             body {
                 background-color: F9F7F7;
                 margin: 0;
                 padding: 0;
-                margin: 5px;
-                 user-select: none;       /* Prevents text selection */
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            flex-wrap: wrap;
-            height: 100vh;
-            width: 100vw;
-            position: relative;
+                margin: 0px;
+                user-select: none;       /* Prevents text selection */
+                -webkit-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                flex-wrap: wrap;
+                height: 100vh;
+                width: 100vw;
+                position: relative;
+                min-height: 100vh;
             }
 
             html {
@@ -38,28 +39,26 @@
                 color: none;
             }
          .textbody {
-            font-family: "SUSE Mono", serif;
-            margin: 20px auto;
-            margin-left: 1px;
-            line-height: 1.6;
-            text-align: justify;
-            width: 90%;
-            color: #112D4E;
-            user-select: none;       /* Prevents text selection */
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            background-color: whitesmoke;
-            border-radius: 10px;
-            padding: 10px;
-            box-shadow: 3px 10px 1px rgba(63, 114, 175, 1);
-            display: block;
-            font-size: 1.2em;
-            flex-wrap: wrap;
-            transition: all 0.3s ease-out;
-
-
-}
+                font-family: "SUSE Mono", serif;
+                margin: 20px auto;
+                margin-left: 1px;
+                line-height: 1.6;
+                text-align: justify;
+                width: 90%;
+                color: #112D4E;
+                user-select: none;       /* Prevents text selection */
+                -webkit-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                background-color: whitesmoke;
+                border-radius: 10px;
+                padding: 10px;
+                box-shadow: 3px 10px 1px rgba(63, 114, 175, 1);
+                display: block;
+                font-size: 1.2em;
+                flex-wrap: wrap;
+                transition: all 0.3s ease-out;
+            }
             
 
             .header {
@@ -107,6 +106,7 @@
                 display: flex;
                 width: 100%;
                 transition: all 0.3s ease-out;
+                margin-left: 5px;
 
                 
               
@@ -117,6 +117,7 @@
                 flex-wrap: wrap;
                 margin-top :0px;
                 transition: all 0.3s ease-out;
+                
 
 
             }
@@ -136,9 +137,9 @@
 
             }
             .lang-icon {
-              width: 30px;
-              height: 30px;
-              margin: 0px;
+                width: 30px;
+                height: 30px;
+                margin: 0px;
 
              
                 
@@ -198,16 +199,14 @@
             }
 
             .Project-box {
-               width: 200px;
-               height: 100px;
-               background-color: #e1ecff;
-               border-radius: 20px;
-               margin: 5px;
-               flex-wrap: wrap;
-               transition: all 0.3s ease;
-               align-items: flex-end;
-                
-               
+                width: 200px;
+                height: 100px;
+                background-color: #e1ecff;
+                border-radius: 20px;
+                margin: 5px;
+                flex-wrap: wrap;
+                transition: all 0.3s ease;
+                align-items: flex-end; 
             }
             .Project-box img {
                 width: 100%;
@@ -249,9 +248,10 @@
                 width: 100%;
                 margin-bottom:20px ;
                 transition: all 0.3s ease-out;
+                margin-left: 5px;
             }
 
-               .edu-head h3:hover {
+            .edu-head h3:hover {
                 color: #2487c1;
                 cursor: pointer;
                 margin: 0px;
@@ -265,32 +265,45 @@
             }
             .course 
             {
-            width: 80%;
-            height: fit-content;
-            background-color: #e5e7eb;
-            margin: 0px;
-            padding: 20px;
-            align-items: center;
-            border-radius: 10px;
-            font-family: "SUSE mono",sans-serif;
-            box-shadow: 4px 10px 1px rgba(63, 114, 175, 1);
-            font-weight:bold ;
+                width: 80%;
+                height: fit-content;
+                background-color: #e5e7eb;
+                margin: 0px;
+                padding: 20px;
+                align-items: center;
+                border-radius: 10px;
+                font-family: "SUSE mono",sans-serif;
+                box-shadow: 4px 10px 1px rgba(63, 114, 175, 1);
+                font-weight:bold ;
+                transition-duration: 0.5s;
+                margin-left: 5px;
             }
 
             .course:hover {
-                box-shadow: 4px 10px 1px ;
+                box-shadow: 4px 7px 1px rgba(35, 78, 132, 0.8) ;
                 transform: translateY(-2px);
                 transition: all 0.3s ease;
-                background-color: #062f47f7;
+                background-color: rgba(61, 126, 206, 0.8);
                 color: white;
+                cursor: pointer;
+               
+
             }
 
-            .course p2 {
+            .course a {
                 margin: 0px;
                 padding: 0px;
                 font-size: 0.7em;
                 font-weight: normal;
+                text-decoration: none;
+                color: black;
 
+            }
+
+            .course a:hover {
+                text-decoration: underline;
+                color :rgb(73, 35, 243);
+                
             }
 
             .status  {
@@ -299,19 +312,21 @@
             }
 
             .Footer {
-                    position: relative;
-                    left: 0;
-                    bottom: 0;
-                    width: 100%;
-                    height: 100px;
-                    top :100px;
-                    background-color: rgb(57, 127, 202)
+                position: relative;
+                left: 0;
+                bottom: 0;
+                width: 100%;padding: 30px;
+                height: 100px;
+                top :100px;
+                background-color: rgb(57, 127, 202);
+                margin: 0px;
+                margin-left: 0px;
             }
 
             .Footer p {
                 color: white;
                 text-align: center;
-                padding: 30px;
+                
                 font-family: "SUSE Mono", serif;
                 font-size: 1em;
                 user-select: none;       /* Prevents text selection */
@@ -319,44 +334,92 @@
                 -moz-user-select: none;
                 -ms-user-select: none;
             }
+            .Footerbox {
+                position: relative;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin: 5px;
+                gap: 10px;
+            }
+
+            .contact-icon {
+                width : 45px;
+                height: 45px;
+                border-radius: 50%;
+                background-image: url("Github.png");
+                background-size: cover;
+                transition: all ease-in 0.2s;
+            }
+
+            .contact-icon:hover
+            {
+                cursor: pointer;
+                background-image: url("Github2.png");
+                width: 50px;
+                height: 50px;
+            }
+
+            .whatshapp-icon {
+                width : 40px;
+                height: 40px;
+                border-radius: 50%;
+                background-image: url("whatshapp.png");
+                background-size: cover;
+                transition: all ease-in 0.2s;
+            }
+
+            .whatshapp-icon:hover
+            {
+                cursor: pointer;
+                width: 50px;
+                height: 50px;
+                transform: scale(2px);
+                
+            }
         </style>
     </head>
     <div class="Header">‎ <span class="autotype">ello</span></div>
     <body>
-        <div class="textbody">I’m <span class ="name">Ankush</span>, An ambitious web developer born in the city of <a href="https://www.google.com/search?q=muzaffarpur+bihar+india" class="Address">Muzaffarpur, Bihar, India</a>. With hands-on experience in building and delivering multiple web projects, I specialize in creating clean, responsive, and user-friendly websites. My journey from a small town to the tech world reflects my dedication, precision, and hunger to grow. I take pride in delivering work on time with unmatched accuracy, and I’m always eager to learn, adapt, and take on new challenges that push my limits.
-
-</div>
-<div class="skill-head"><h1>Skills</h1></div>
-<div class="Techstack">
-
-
-
-<div class="langbox"><img src="assets/file_type_html_icon_130541.png" alt="HTML" class="lang-icon">HTML</div>
-<div class="langbox"><img src="assets/file_type_css_icon_130661.png" alt="CSS" class="lang-icon">CSS</div>
-<div class="langbox"><img src="assets/file_type_js_official_icon_130509.png" alt="JS" class="lang-icon">JS</div>
-<div class="langbox"><img src="assets/python_18894.png" alt="PYTHON" class="lang-icon">PYTHON</div>
-<div class="langbox"><img src="assets/react_original_logo_icon_146374.png" alt="REACT" class="lang-icon">REACT</div>
-<div class="langbox"><img src="assets/c_original_logo_icon_146611.png" alt="C" class="lang-icon">C</div>
-</div>
-<!--education section -->
-<div class="edu-head" ><h3>Education</h3></div>
-<div class="edu">
-    <div class="course"><p>BCA(bachelor of applications)     <span class="status">current</span></p>
-    <p2>B.R.A.B.U Muzaffarpur,Bihar</p></div>
-</div>
-<!--contact section-->
-<div class="Footer"><p>Contact me : kumarankush08146@gmail.com</p></div>
+    <!--Introduction body-->
+        <div class="textbody">I’m <span class ="name">Ankush</span>, An ambitious web developer born in the city of <a href="https://www.google.com/search?q=muzaffarpur+bihar+india" target="_blank" class="Address">Muzaffarpur, Bihar, India</a>. With hands-on experience in building and delivering multiple web projects, I specialize in creating clean, responsive, and user-friendly websites. My journey from a small town to the tech world reflects my dedication, precision, and hunger to grow. I take pride in delivering work on time with unmatched accuracy, and I’m always eager to learn, adapt, and take on new challenges that push my limits.</div>
+    <!--Skills section-->
+        <div class="skill-head"><h1>Skills</h1></div>
+        <div class="Techstack">
+            <div class="langbox"><img src="file_type_html_icon_130541.png" alt="HTML" class="lang-icon">HTML</div>
+            <div class="langbox"><img src="file_type_css_icon_130661.png" alt="CSS" class="lang-icon">CSS</div>
+            <div class="langbox"><img src="file_type_js_official_icon_130509.png" alt="JS" class="lang-icon">JS</div>
+            <div class="langbox"><img src="python_18894.png" alt="PYTHON" class="lang-icon">PYTHON</div>
+            <div class="langbox"><img src="react_original_logo_icon_146374.png" alt="REACT" class="lang-icon">REACT</div>
+            <div class="langbox"><img src="c_original_logo_icon_146611.png" alt="C" class="lang-icon">C</div>
+        </div>
+<!--Education section -->
+        <div class="edu-head" ><h3>Education</h3></div>
+        <div class="edu">
+            <div class="course"><p>BCA(Bachelor of Computer applications)<span class="status">current</span></p>
+            <a href="https://www.google.com/search?q=Brabu+Muzaffarpur+Bihar" target="_blank">B.R.A.B.U Muzaffarpur,Bihar</a></div>
+        </div>
+<!--Contact section-->
+        <div class="Footer">
+    
+            <p>Contact me : boldbug9@gmail.com</p>
+            <div class="Footerbox">
+            <a href="https://github.com/boldbug1" target="_blank"><div class="contact-icon"></div></a>
+            <a href="https://api.whatsapp.com/send?phone=+918102692189" target="_blank"><div class="whatshapp-icon"></div></a>
+            
+            </div>
+        </div>
 <!--Scripts section-->
-<script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
-<script>
-    var typed = new Typed('.autotype', {
-    strings: ["Hello,", "I'm Ankush.", "A Web Developer.", "Based in India."],
-        typeSpeed: 100,
-        backSpeed: 50,
-        loop: true,
-        showCursor:true,
-        cursorChar: '_',
-    });
-</script>
+        <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+        <script>
+            var typed = new Typed('.autotype', {
+            strings: ["Hello,", "I'm Ankush.", "A Web Developer.", "Based in India."],
+            typeSpeed: 100,
+            backSpeed: 50,
+            loop: true,
+            showCursor:true,
+            cursorChar: '_',
+        });
+        </script>
     </body>
 </html>
