@@ -15,18 +15,17 @@
            
             body {
                 background-color: F9F7F7;
-                margin: 0;
+                margin: 10px;
                 padding: 0;
                 margin: 0px;
-                user-select: none;       /* Prevents text selection */
-                -webkit-user-select: none;
-                -moz-user-select: none;
-                -ms-user-select: none;
-                flex-wrap: wrap;
-                height: 100vh;
-                width: 100vw;
-                position: relative;
+               min-height: 100vh;
+                width: 100%;
                 min-height: 100vh;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+
             }
 
             html {
@@ -41,23 +40,17 @@
             }
          .textbody {
                 font-family: "SUSE Mono", serif;
-                margin: 20px auto;
-                margin-left: 1px;
+
                 line-height: 1.6;
                 text-align: justify;
                 width: 90%;
+                 max-width:500px;
                 color: #112D4E;
-                user-select: none;       /* Prevents text selection */
-                -webkit-user-select: none;
-                -moz-user-select: none;
-                -ms-user-select: none;
                 background-color: whitesmoke;
                 border-radius: 10px;
                 padding: 10px;
                 box-shadow: 3px 10px 1px rgba(63, 114, 175, 1);
-                display: block;
                 font-size: 1.2em;
-                flex-wrap: wrap;
                 transition: all 0.3s ease-out;
             }
             
@@ -66,9 +59,9 @@
                 font-family: 'Sora', sans-serif;
                 font-size: 36px;
                 font-weight: bold;
-                text-align: left;
+                text-align:center;
                 margin-top: 10px;
-                color: 3F72AF;
+                color:#3F72AF;
                 cursor: pointer;
                 width: 100%;
 
@@ -105,7 +98,6 @@
                 cursor: pointer;
                 font-family: 'Sora', sans-serif;
                 display: flex;
-                width: 100%;
                 transition: all 0.3s ease-out;
                 margin-left: 5px;
 
@@ -244,7 +236,7 @@
                 font-weight: bold;
                 text-align: left;
                 margin-top: 20px;
-                color: 3F72AF;
+                color:#3F72AF;
                 cursor: pointer;
                 width: 100%;
                 margin-bottom:20px ;
@@ -252,6 +244,11 @@
                 margin-left: 5px;
             }
 
+            .edu {
+                width: 90%;
+                height: auto;
+                max-width: 500px;
+            }
             .edu-head h3:hover {
                 color: #2487c1;
                 cursor: pointer;
@@ -266,7 +263,8 @@
             }
             .course 
             {
-                width: 80%;
+                width: 90%;
+                max-width: 500px;
                 height: fit-content;
                 background-color: #e5e7eb;
                 margin: 0px;
@@ -277,15 +275,15 @@
                 box-shadow: 4px 10px 1px rgba(63, 114, 175, 1);
                 font-weight:bold ;
                 transition-duration: 0.5s;
-                margin-left: 5px;
+                
             }
 
             .course:hover {
                 box-shadow: 4px 7px 1px rgba(35, 78, 132, 0.8) ;
                 transform: translateY(-2px);
                 transition: all 0.3s ease;
-                background-color: rgba(61, 126, 206, 0.8);
-                color: white;
+                background-color: rgba(61, 126, 206, 0.1);
+                color: rgb(0, 0, 0);
                 cursor: pointer;
                
 
@@ -301,14 +299,9 @@
 
             }
 
-            .course a:hover {
-                text-decoration: underline;
-                color :rgb(73, 35, 243);
-                
-            }
 
             .status  {
-                color: #21e73cf2;
+                color: #10af25f2;
                 margin-left: 5px;
             }
 
@@ -316,12 +309,11 @@
                 position: relative;
                 left: 0;
                 bottom: 0;
-                width: 100%;padding: 30px;
+                width: 100%;
+                padding: 30px;
                 height: 100px;
                 top :100px;
                 background-color: rgb(57, 127, 202);
-                margin: 0px;
-                margin-left: 0px;
             }
 
             .Footer p {
@@ -379,16 +371,7 @@
                 
             }
 
-            @keyframes appear {
-                from  {
-                    opacity: 0;
-                    scale: 0.5;
-                }
-                to {
-                    opacity: 1;
-                    scale : 1;
-                }
-            } 
+
 
             .textbody {
                 animation: appear  linear;
@@ -418,13 +401,100 @@
                 animation-range: entry 0% cover 40%;
             }
 
+            .page-head{
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                width: 100%;
+                
+            }
 
+            .left-head{
+                width: 50%;
+            }
+
+            .right-head{
+                width: 50%;
+                display: flex;
+                justify-content: end;
+            }
+
+            .sidebar{
+                width: 200px;
+                height: fit-content;
+                color: white;
+                top: 10px;
+                background-color: #012a89;
+                z-index: 1000;
+                display: none;
+                position: absolute;
+                right: 0px;
+                border-top-left-radius:20px ;
+                border-bottom-left-radius:20px;
+                animation-name: slide-out;
+                animation-duration: 2s;
+                transition: 2s ease-in-out;
+
+
+                
+
+            }
+
+            .sidebar ul{
+                width: 100%;
+                padding: 0;
+            }
+
+            .sidebar ul li{
+                list-style-type: none;
+                padding: 20px;
+                width: 100%;
+                background-color: darkblue;
+                border: 2px solid rgb(2, 0, 0);
+            }
+
+            .sidebar ul li a {
+                color: white;
+                text-decoration: none;
+                font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+                font-size: 1.3rem;
+            }
+
+            .contact{
+                border-bottom-left-radius: 20px;
+            }
+
+            .about{
+                border-top-left-radius: 20px;
+            }
+
+             .sidebar ul li a:hover{
+                background-color: red;
+             }
+
+             @keyframes slide-out {
+                0%{
+                    opacity: 0;
+                    transform: translateX(1000);
+                }
+
+                50%{
+                    opacity: 1;
+                    transform: translateX(500);
+                   
+                }
+
+                100%{
+                    opacity: 1;
+                     transform: translateX(100);
+                }
+             }
         </style>
     </head>
-    <div class="Header">‎ <span class="autotype">ello</span></div>
     <body>
+                <div class="Header">‎ <span class="autotype">ello</span></div>
     <!--Introduction body-->
-        <div class="textbody">I’m <span class ="name">Ankush</span>, An ambitious web developer born in the city of <a href="https://www.google.com/search?q=muzaffarpur+bihar+india" target="_blank" class="Address">Muzaffarpur, Bihar, India</a>. With hands-on experience in building and delivering multiple web projects, I specialize in creating clean, responsive, and user-friendly websites. My journey from a small town to the tech world reflects my dedication, precision, and hunger to grow. I take pride in delivering work on time with unmatched accuracy, and I’m always eager to learn, adapt, and take on new challenges that push my limits.</div>
+        <div class="textbody" style="font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">I’m <span class ="name">Ankush</span>, An  <span style="font-weight: bold; color:#012a89;">Full stack Web developer</span> born in the city of <a href="https://www.google.com/search?q=muzaffarpur+bihar+india" target="_blank" class="Address" style="color: #012a89;">Muzaffarpur, Bihar, India</a>. With hands-on experience in building and delivering multiple web projects, I specialize in creating clean, responsive, and user-friendly websites. I take pride in delivering work on time with unmatched accuracy, and I’m always eager to learn, adapt, and take on new challenges that push my limits.</div>
     <!--Skills section-->
         <div class="skill-head"><h1>Skills</h1></div>
         <div class="Techstack">
@@ -453,6 +523,8 @@
 <!--Scripts section-->
         <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
         <script>
+            const sidebar = document.getElementById("sidebar");
+
             var typed = new Typed('.autotype', {
             strings: ["Hello,", "I'm Ankush.", "A Web Developer.", "Based in India."],
             typeSpeed: 100,
@@ -461,6 +533,9 @@
             showCursor:true,
             cursorChar: '_',
         });
+            function openSidebar(){
+                sidebar.style.display = "block";
+            }
         </script>
     </body>
 </html>
