@@ -1,378 +1,609 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Boldbug | Systems & Backend</title>
-    
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;600&family=Outfit:wght@300;500;800&display=swap" rel="stylesheet">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Boldbug — Ankush Kumar</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    <style>
-        /* --- Base Setup --- */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            scroll-behavior: smooth;
-        }
+  :root {
+    --bg: #ffffff;
+    --bg-subtle: #f8f8f7;
+    --bg-muted: #f1f0ee;
+    --text: #111110;
+    --text-secondary: #6b6b68;
+    --text-tertiary: #9b9b96;
+    --border: rgba(0,0,0,0.08);
+    --border-mid: rgba(0,0,0,0.14);
+    --accent: #1a56db;
+    --accent-bg: #eff4ff;
+    --accent-text: #1e40af;
+    --green: #166534;
+    --green-bg: #f0fdf4;
+    --amber: #92400e;
+    --amber-bg: #fffbeb;
+    --radius: 10px;
+    --radius-sm: 6px;
+    --mono: 'JetBrains Mono', monospace;
+    --sans: 'Inter', system-ui, sans-serif;
+  }
 
-        :root {
-            --bg-deep: #050507;
-            --accent-glow: #7000ff;
-            --text-main: #e2e8f0;
-            --text-muted: #8b949e;
-            --glass-bg: rgba(20, 20, 25, 0.4);
-            --glass-border: rgba(255, 255, 255, 0.05);
-        }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #111110;
+      --bg-subtle: #1a1a19;
+      --bg-muted: #232321;
+      --text: #f0efec;
+      --text-secondary: #a8a8a3;
+      --text-tertiary: #6b6b68;
+      --border: rgba(255,255,255,0.08);
+      --border-mid: rgba(255,255,255,0.14);
+      --accent: #6ea8fe;
+      --accent-bg: #0f1f3d;
+      --accent-text: #93c5fd;
+      --green: #86efac;
+      --green-bg: #052e16;
+      --amber: #fcd34d;
+      --amber-bg: #1c1100;
+    }
+  }
 
-        body {
-            background-color: var(--bg-deep);
-            color: var(--text-main);
-            font-family: 'Outfit', sans-serif;
-            overflow-x: hidden;
-            line-height: 1.6;
-        }
+  html { scroll-behavior: smooth; }
 
-        /* --- Animated Ambient Background --- */
-        .ambient-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            z-index: -1;
-            background: 
-                radial-gradient(circle at 15% 50%, rgba(112, 0, 255, 0.08), transparent 50%),
-                radial-gradient(circle at 85% 30%, rgba(0, 212, 255, 0.05), transparent 50%);
-            filter: blur(60px);
-            animation: pulseBg 10s infinite alternate;
-        }
+  body {
+    font-family: var(--sans);
+    background: var(--bg);
+    color: var(--text);
+    font-size: 15px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
 
-        @keyframes pulseBg {
-            0% { transform: scale(1); opacity: 0.8; }
-            100% { transform: scale(1.1); opacity: 1; }
-        }
+  /* NAV */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--bg);
+    border-bottom: 0.5px solid var(--border);
+    padding: 0 2rem;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
 
-        /* --- Layout & Glassmorphism --- */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 40px 24px;
-        }
+  .nav-logo {
+    font-family: var(--mono);
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text);
+    text-decoration: none;
+    letter-spacing: -0.3px;
+  }
 
-        .glass-panel {
-            background: var(--glass-bg);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid var(--glass-border);
-            border-radius: 24px;
-            padding: 40px;
-            box-shadow: 0 30px 60px rgba(0,0,0,0.4);
-            transition: transform 0.3s ease, border-color 0.3s ease;
-        }
+  .nav-logo span { color: var(--accent); }
 
-        .glass-panel:hover {
-            border-color: rgba(112, 0, 255, 0.3);
-            transform: translateY(-2px);
-        }
+  .nav-links {
+    display: flex;
+    gap: 1.5rem;
+    list-style: none;
+  }
 
-        /* --- Header / Hero --- */
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 80px;
-            padding-top: 20px;
-        }
+  .nav-links a {
+    font-size: 13px;
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
 
-        .logo {
-            font-family: 'Fira Code', monospace;
-            font-size: 24px;
-            font-weight: 600;
-            letter-spacing: -1px;
-            background: linear-gradient(90deg, #fff, var(--text-muted));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
+  .nav-links a:hover { color: var(--text); }
 
-        .hero-section {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-            margin-bottom: 100px;
-        }
+  /* LAYOUT */
+  .container {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
 
-        .hero-title {
-            font-size: 64px;
-            font-weight: 800;
-            line-height: 1.1;
-            margin-bottom: 24px;
-        }
+  section { padding: 4rem 0; }
+  section + section { border-top: 0.5px solid var(--border); }
 
-        .hero-title span {
-            color: var(--accent-glow);
-            text-shadow: 0 0 20px rgba(112, 0, 255, 0.4);
-        }
+  /* HERO */
+  #hero { padding: 5rem 0 4rem; }
 
-        .hero-subtitle {
-            font-size: 20px;
-            color: var(--text-muted);
-            margin-bottom: 32px;
-            max-width: 480px;
-        }
+  .hero-eyebrow {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--accent);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
 
-        /* --- Terminal Block --- */
-        .terminal {
-            font-family: 'Fira Code', monospace;
-            background: rgba(0, 0, 0, 0.6);
-            border-radius: 12px;
-            padding: 24px;
-            font-size: 14px;
-            color: #2dd4bf;
-            border: 1px solid rgba(45, 212, 191, 0.1);
-        }
+  h1 {
+    font-size: clamp(2rem, 5vw, 2.8rem);
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    line-height: 1.15;
+    margin-bottom: 0.4rem;
+  }
 
-        .terminal-header {
-            display: flex;
-            gap: 8px;
-            margin-bottom: 16px;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-            padding-bottom: 12px;
-        }
+  .hero-handle {
+    font-family: var(--mono);
+    font-size: 1rem;
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+  }
 
-        .dot { width: 12px; height: 12px; border-radius: 50%; }
-        .dot.red { background: #ff5f56; }
-        .dot.yellow { background: #ffbd2e; }
-        .dot.green { background: #27c93f; }
+  .hero-bio {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    max-width: 560px;
+    line-height: 1.75;
+    margin-bottom: 2rem;
+  }
 
-        /* --- Tech Stack Grid --- */
-        .section-title {
-            font-size: 32px;
-            font-weight: 800;
-            margin-bottom: 40px;
-            text-align: center;
-        }
+  .hero-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
 
-        .tech-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-            gap: 24px;
-            margin-bottom: 100px;
-        }
+  .meta-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    color: var(--text-tertiary);
+  }
 
-        .tech-card {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 12px;
-            padding: 24px 16px;
-            border-radius: 16px;
-            text-align: center;
-        }
+  .meta-item svg { flex-shrink: 0; }
 
-        .tech-card i {
-            font-size: 48px;
-            transition: all 0.3s ease;
-        }
+  .status-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #22c55e;
+    display: inline-block;
+    flex-shrink: 0;
+  }
 
-        .tech-card span {
-            font-family: 'Fira Code', monospace;
-            font-size: 12px;
-            color: var(--text-muted);
-        }
+  .hero-actions {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
 
-        .tech-card:hover i {
-            transform: scale(1.1) translateY(-5px);
-            filter: drop-shadow(0 0 10px rgba(255,255,255,0.2));
-        }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius-sm);
+    font-size: 13px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.15s;
+    cursor: pointer;
+    border: 0.5px solid var(--border-mid);
+  }
 
-        /* --- Projects Row --- */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 32px;
-            margin-bottom: 100px;
-        }
+  .btn-primary {
+    background: var(--text);
+    color: var(--bg);
+    border-color: var(--text);
+  }
 
-        .project-card h3 {
-            font-size: 24px;
-            margin-bottom: 12px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
+  .btn-primary:hover { opacity: 0.85; }
 
-        .project-card p {
-            color: var(--text-muted);
-            font-size: 15px;
-            margin-bottom: 20px;
-        }
+  .btn-secondary {
+    background: transparent;
+    color: var(--text);
+  }
 
-        .badge-row {
-            display: flex;
-            gap: 8px;
-            flex-wrap: wrap;
-        }
+  .btn-secondary:hover { background: var(--bg-muted); }
 
-        .badge {
-            background: rgba(112, 0, 255, 0.1);
-            color: #b17aff;
-            padding: 4px 12px;
-            border-radius: 100px;
-            font-size: 12px;
-            font-weight: 600;
-            border: 1px solid rgba(112, 0, 255, 0.2);
-        }
+  /* SECTION HEADERS */
+  .section-label {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-tertiary);
+    margin-bottom: 0.5rem;
+  }
 
-        /* --- Footer/Contact --- */
-        footer {
-            text-align: center;
-            padding: 60px 0;
-            border-top: 1px solid var(--glass-border);
-        }
+  h2 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    margin-bottom: 2rem;
+  }
 
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 24px;
-            margin-bottom: 24px;
-        }
+  /* ABOUT / FOCUS */
+  .focus-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
 
-        .social-links a {
-            color: var(--text-muted);
-            text-decoration: none;
-            font-size: 24px;
-            transition: color 0.3s ease;
-        }
+  .focus-card {
+    background: var(--bg-subtle);
+    border: 0.5px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.1rem 1.25rem;
+  }
 
-        .social-links a:hover {
-            color: var(--text-main);
-        }
+  .focus-card-icon {
+    font-size: 20px;
+    margin-bottom: 0.6rem;
+  }
 
-        /* --- Responsive --- */
-        @media (max-width: 900px) {
-            .hero-section {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-            .hero-subtitle {
-                margin: 0 auto 32px auto;
-            }
-        }
-    </style>
+  .focus-card h3 {
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 4px;
+    color: var(--text);
+  }
+
+  .focus-card p {
+    font-size: 12px;
+    color: var(--text-secondary);
+    line-height: 1.5;
+  }
+
+  /* SKILLS */
+  .stack-group { margin-bottom: 2rem; }
+
+  .stack-group-label {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text-tertiary);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 0.75rem;
+  }
+
+  .tag-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .tag {
+    font-family: var(--mono);
+    font-size: 12px;
+    padding: 4px 10px;
+    border-radius: var(--radius-sm);
+    border: 0.5px solid var(--border-mid);
+    color: var(--text-secondary);
+    background: var(--bg-subtle);
+  }
+
+  .tag.learning {
+    background: var(--accent-bg);
+    color: var(--accent-text);
+    border-color: transparent;
+  }
+
+  .tag.interested {
+    background: var(--amber-bg);
+    color: var(--amber);
+    border-color: transparent;
+  }
+
+  /* PROJECTS */
+  .projects-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .project-card {
+    background: var(--bg);
+    border: 0.5px solid var(--border-mid);
+    border-radius: var(--radius);
+    padding: 1.25rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    transition: border-color 0.15s;
+  }
+
+  .project-card:hover { border-color: var(--accent); }
+
+  .project-card-body { flex: 1; }
+
+  .project-title {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+    color: var(--text);
+  }
+
+  .project-desc {
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.55;
+    margin-bottom: 0.75rem;
+  }
+
+  .project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  .project-tag {
+    font-size: 11px;
+    font-family: var(--mono);
+    padding: 2px 8px;
+    border-radius: 4px;
+    background: var(--bg-muted);
+    color: var(--text-tertiary);
+  }
+
+  .project-link {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 12px;
+    color: var(--accent);
+    text-decoration: none;
+    white-space: nowrap;
+    padding-top: 2px;
+  }
+
+  .project-link:hover { text-decoration: underline; }
+
+  .wip-badge {
+    font-size: 10px;
+    font-family: var(--mono);
+    padding: 2px 7px;
+    border-radius: 4px;
+    background: var(--green-bg);
+    color: var(--green);
+    margin-left: 8px;
+    vertical-align: middle;
+  }
+
+  /* CONTACT / FOOTER */
+  #contact { padding-bottom: 5rem; }
+
+  .contact-row {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+  }
+
+  footer {
+    border-top: 0.5px solid var(--border);
+    padding: 1.5rem 2rem;
+    text-align: center;
+    font-size: 12px;
+    color: var(--text-tertiary);
+    font-family: var(--mono);
+  }
+
+  /* DIVIDER */
+  .thin-rule {
+    border: none;
+    border-top: 0.5px solid var(--border);
+    margin: 2rem 0;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 600px) {
+    nav { padding: 0 1rem; }
+    .container { padding: 0 1rem; }
+    .nav-links { display: none; }
+    h1 { font-size: 2rem; }
+  }
+</style>
 </head>
 <body>
 
-    <div class="ambient-bg"></div>
+<nav>
+  <a href="#hero" class="nav-logo">boldbug<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Stack</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
 
-    <div class="container">
-        
-        <header>
-            <div class="logo">BOLDBUG_</div>
-            <div class="social-links" style="margin: 0;">
-                <a href="https://github.com/boldbug1" target="_blank"><i class="devicon-github-original"></i></a>
-            </div>
-        </header>
+<!-- HERO -->
+<div class="container">
+  <section id="hero">
+    <h1>Ankush Kumar</h1>
+    <p class="hero-handle">@boldbug</p>
+     <div class="hero-meta">
+      <span class="meta-item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+        Muzaffarpur,Bihar,India
+      </span>
+      <span class="meta-item">
+        <span class="status-dot"></span>
+        Learning backend systems &amp; engineering
+      </span>
+      <span class="meta-item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        Open to collabs &amp; side projects
+      </span>
+    </div>
+    <p class="hero-bio">
+      Backend-leaning developer based in Muzaffarpur, Bihar. Currently deep in backend systems and engineering ,building things that are fast, stateless, and boring in the right ways. Long-term interest in AI and application security.
+    </p>
+   
+    <div class="hero-actions">
+      <a href="https://github.com/boldbug1" target="_blank" class="btn btn-primary">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.37.5 0 5.87 0 12.5c0 5.31 3.44 9.82 8.21 11.41.6.11.82-.26.82-.58v-2.04c-3.34.72-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.74.08-.73.08-.73 1.21.09 1.85 1.24 1.85 1.24 1.07 1.84 2.81 1.31 3.5 1 .11-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.12-3.17 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 3-.4c1.02.005 2.04.14 3 .4 2.28-1.55 3.29-1.23 3.29-1.23.66 1.65.25 2.87.12 3.17.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.22.7.83.58C20.56 22.32 24 17.81 24 12.5 24 5.87 18.63.5 12 .5z"/></svg>
+        GitHub
+      </a>
+      <a href="https://linkedin.com/in/ankush-tiwari1" target="_blank" class="btn btn-secondary">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.37V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.35-1.85 3.58 0 4.25 2.36 4.25 5.43v6.31zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zm1.78 13.02H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.44C23.21 24 24 23.23 24 22.27V1.73C24 .77 23.21 0 22.22 0z"/></svg>
+        LinkedIn
+      </a>
+      <a href="mailto:boldbug9@gmail.com" class="btn btn-secondary">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>
+        Email me
+      </a>
+    </div>
+  </section>
 
-        <section class="hero-section">
-            <div>
-                <h1 class="hero-title">Architecting<br><span>Deep Logic.</span></h1>
-                <p class="hero-subtitle">
-                    I am Ankush. A backend developer bridging the gap between rigorous C-level data structures, fluid web systems, and interactive 3D logic.
-                </p>
-            </div>
-            
-            <div class="terminal glass-panel">
-                <div class="terminal-header">
-                    <div class="dot red"></div>
-                    <div class="dot yellow"></div>
-                    <div class="dot green"></div>
-                </div>
-                <div>> Fetching user context...</div>
-                <div style="color: var(--text-muted);">> Location: Bihar, IN</div>
-                <div style="color: var(--text-muted);">> Current_Focus: Backend Architecture</div>
-                <div style="color: var(--text-muted);">> Compiling dependencies...</div>
-                <br>
-                <div style="color: #fff;">Status: System Online. Ready to build.</div>
-            </div>
-        </section>
+  <!-- ABOUT -->
+  <section id="about">
+    <p class="section-label">About</p>
+    <h2>Who I am &amp; where I'm going</h2>
+    <p style="color: var(--text-secondary); line-height: 1.8; max-width: 620px; margin-bottom: 1.5rem;">
+      I'm a self-driven developer who got into coding by building things I actually wanted to use. Right now I'm focused on understanding how backend systems really work , the plumbing behind APIs, distributed state, and server architecture. I write mostly JavaScript and am picking up Go and deeper systems knowledge.
+    </p>
+    <p style="color: var(--text-secondary); line-height: 1.8; max-width: 620px;">
+      My long-term path runs through two areas: <strong style="color: var(--text); font-weight: 500;">AI/ML engineering</strong> and <strong style="color: var(--text); font-weight: 500;">application security</strong>. I'm drawn to how systems break, how they scale, and how they can be made smarter. I like working on open-source projects and collaborating with people who care about what they build.
+    </p>
 
-        <section>
-            <h2 class="section-title">Core Arsenal</h2>
-            <div class="tech-grid">
-                <div class="glass-panel tech-card">
-                    <i class="devicon-c-plain"></i>
-                    <span>C / C++</span>
-                </div>
-                <div class="glass-panel tech-card">
-                    <i class="devicon-nodejs-plain"></i>
-                    <span>Node.js</span>
-                </div>
-                <div class="glass-panel tech-card">
-                    <i class="devicon-postgresql-plain"></i>
-                    <span>PostgreSQL</span>
-                </div>
-                <div class="glass-panel tech-card">
-                    <i class="devicon-express-original"></i>
-                    <span>Express</span>
-                </div>
-                <div class="glass-panel tech-card">
-                    <i class="devicon-python-plain"></i>
-                    <span>Python</span>
-                </div>
-                <div class="glass-panel tech-card">
-                    <i class="devicon-javascript-plain"></i>
-                    <span>JavaScript</span>
-                </div>
-            </div>
-        </section>
+    <div class="focus-grid">
+      <div class="focus-card">
+        <div class="focus-card-icon">⚙️</div>
+        <h3>Backend systems</h3>
+        <p>Currently learning — REST APIs, server design, stateless architecture, Go-based services.</p>
+      </div>
+      <div class="focus-card">
+        <div class="focus-card-icon">🤖</div>
+        <h3>AI &amp; new tech</h3>
+        <p>Following AI tooling, model deployment, and where LLMs fit into real product stacks.</p>
+      </div>
+      <div class="focus-card">
+        <div class="focus-card-icon">🔐</div>
+        <h3>Security (future focus)</h3>
+        <p>Interested in application security, attack surfaces, and building systems that are hard to break.</p>
+      </div>
+    </div>
+  </section>
 
-        <!-- <section>
-            <h2 class="section-title">Active Engineering</h2>
-            <div class="projects-grid">
-                
-                <div class="glass-panel project-card">
-                    <h3>Project Veda ⚙️</h3>
-                    <p>Building a custom lexer in C to drastically optimize string parsing and lexical scanning logic for a Python-based programming environment.</p>
-                    <div class="badge-row">
-                        <span class="badge">C Programming</span>
-                        <span class="badge">Compiler Design</span>
-                    </div>
-                </div>
+  <!-- SKILLS -->
+  <section id="skills">
+    <p class="section-label">Stack &amp; Skills</p>
+    <h2>What I work with</h2>
 
-                <div class="glass-panel project-card">
-                    <h3>3D Controller Logic 🎮</h3>
-                    <p>Developing robust 3rd-person movement systems, state machines, and animation integration within the Godot 4+ engine framework.</p>
-                    <div class="badge-row">
-                        <span class="badge">Godot Engine</span>
-                        <span class="badge">State Machines</span>
-                    </div>
-                </div>
-
-                <div class="glass-panel project-card">
-                    <h3>AI Workflow Automation 🧠</h3>
-                    <p>Experimenting with advanced local image generation models, managing JSON node architectures, and optimizing VRAM hardware limits.</p>
-                    <div class="badge-row">
-                        <span class="badge">ComfyUI</span>
-                        <span class="badge">Scripting</span>
-                    </div>
-                </div>
-
-            </div>
-        </section> -->
-
-        <footer>
-            <div class="social-links">
-                <a href="https://github.com/boldbug1" target="_blank"><i class="devicon-github-original"></i></a>
-            </div>
-            <p style="color: var(--text-muted); font-family: 'Fira Code', monospace; font-size: 14px;">
-                © 2026 Ankush / Boldbug
-            </p>
-        </footer>
-
+    <div class="stack-group">
+      <p class="stack-group-label">Languages</p>
+      <div class="tag-row">
+        <span class="tag">JavaScript</span>
+        <span class="tag">HTML</span>
+        <span class="tag">CSS</span>
+        <span class="tag">C</span>
+        <span class="tag">Python</span>
+      </div>
     </div>
 
+    <div class="stack-group">
+      <p class="stack-group-label">Frameworks &amp; Tools</p>
+      <div class="tag-row">
+        <span class="tag">Node.js</span>
+        <span class="tag">Express</span>
+        <span class="tag">Tailwind CSS</span>
+        <span class="tag">VS Code</span>
+      </div>
+    </div>
+
+    <div class="stack-group">
+      <p class="stack-group-label">Currently learning</p>
+      <div class="tag-row">
+        <span class="tag learning">Backend architecture</span>
+        <span class="tag learning">Distributed systems</span>
+        <span class="tag learning">Go</span>
+        <span class="tag learning">System design</span>
+      </div>
+    </div>
+
+    <div class="stack-group">
+      <p class="stack-group-label">Future interest</p>
+      <div class="tag-row">
+        <span class="tag interested">Application security</span>
+        <span class="tag interested">AI engineering</span>
+        <span class="tag interested">Threat modeling</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <p class="section-label">Projects</p>
+    <h2>Things I've built</h2>
+
+    <div class="projects-grid">
+
+      <div class="project-card">
+        <div class="project-card-body">
+          <p class="project-title">
+            Library API
+            <span class="wip-badge">wip</span>
+          </p>
+          <p class="project-desc">A simple REST API built with Node.js and Express for managing a collection of books.</p>
+          <div class="project-tags">
+            <span class="project-tag">Node.js</span>
+            <span class="project-tag">Express</span>
+            <span class="project-tag">JS</span>
+            <span class="project-tag">HTML</span>
+          </div>
+        </div>
+        <a href="https://github.com/boldbug1/Library-API" target="_blank" class="project-link">
+          GitHub
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        </a>
+      </div>
+
+      <div class="project-card">
+        <div class="project-card-body">
+          <p class="project-title">Weather App</p>
+          <p class="project-desc">A lightweight, client-side weather dashboard built using vanilla JavaScript, ES6 modules, and Tailwind CSS. The project demonstrates clean code practices by decoupling data fetching, structural formatting, and DOM rendering into isolated modules.</p>
+          <div class="project-tags">
+            <span class="project-tag">HTML</span>
+            <span class="project-tag">CSS</span>
+            <span class="project-tag">Tailwind</span>
+            <span class="project-tag">JavaScript</span>
+          </div>
+        </div>
+        <a href="https://github.com/boldbug1/Weather" target="_blank" class="project-link">
+          GitHub
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        </a>
+    </div>
+    </div>
+
+    <p style="margin-top: 1.5rem; font-size: 13px; color: var(--text-tertiary);">
+      More on <a href="https://github.com/boldbug1" target="_blank" style="color: var(--accent); text-decoration: none;">github.com/boldbug</a>
+    </p>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <p class="section-label">Contact</p>
+    <h2>Let's work together</h2>
+    <p style="color: var(--text-secondary); max-width: 480px; line-height: 1.75;">
+      Open to collaborations, open-source contributions, and interesting problems. If you're building something cool or want to talk shop — reach out.
+    </p>
+    <div class="contact-row">
+      <a href="mailto:boldbug9@gmail.com" class="btn btn-primary">Send an email</a>
+      <a href="https://github.com/boldbug1" target="_blank" class="btn btn-secondary">GitHub</a>
+      <a href="https://linkedin.com/in/ankush-tiwari1" target="_blank" class="btn btn-secondary">LinkedIn</a>
+    </div>
+  </section>
+</div>
+
+<footer>
+  boldbug · ankush kumar · Muzaffarpur, India · built with html &amp; css
+</footer>
 </body>
 </html>
