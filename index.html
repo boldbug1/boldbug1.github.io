@@ -1,40 +1,45 @@
 ---
 layout: default
 ---
-
-<head>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600&family=IBM+Plex+Mono&display=swap" rel="stylesheet">
-</head>
-
 <header>
   <h1>Ankush Kumar</h1>
   <p class="handle">Boldbug</p>
 </header>
 
-<section>
-  <p>I like to simulate real life events using machine and work on machine learning systems</p>
-</section>
+<p>I like to simulate real life events using machine and work on machine learning systems.</p>
 
-<section>
-  <h2>Projects</h2>
-  <ul>
-    <li><a href="https://github.com/boldbug1/blogit">Blogit</a>A platform for writers to post blogs and manage thier blogs</li>
-    <li><a href="https://github.com/boldbug1/tiny-redis">Blogit</a>A redis implmentation from scratch using Go</li>
-    <li><a href="https://github.com/boldbug1/2d-graphics-engine">2D graphics engine</a>: a software renderer in C++.</li>
-    <li><a href="https://github.com/boldbug1/revprox">revprox</a>: a reverse proxy in Go.</li>
-  </ul>
-</section>
+<h2>Projects</h2>
+<ul class="cards">
+  {% for project in site.data.projects %}
+    <li class="card">
+      {% if project.image %}
+        <img class="thumb sq" src="{{ project.image }}" alt="">
+      {% else %}
+        <div class="thumb sq"></div>
+      {% endif %}
+      <div class="body">
+        <p class="title">
+          {% if project.url %}<a href="{{ project.url }}">{{ project.name }}</a>{% else %}{{ project.name }}{% endif %}
+        </p>
+        <p class="desc">{{ project.description }}</p>
+      </div>
+    </li>
+  {% endfor %}
+</ul>
 
-<section>
-  <h2>Blog</h2>
-  <ul class="posts">
-    {% for post in site.posts %}
-      <li>
-        <a href="{{ post.url }}">{{ post.title }}</a>
-        <span class="date">{{ post.date | date: "%b %d, %Y" }}</span>
-      </li>
-    {% endfor %}
-  </ul>
-</section>
+<h2>Posts</h2>
+<ul class="cards">
+  {% for post in site.posts %}
+    <li class="card">
+      {% if post.image %}
+        <img class="thumb" src="{{ post.image }}" alt="">
+      {% endif %}
+      <div class="body">
+        <p class="date">{{ post.date | date: "%b %d, %Y" }}</p>
+        <p class="title"><a href="{{ post.url }}">{{ post.title }}</a></p>
+        {% if post.description %}<p class="desc">{{ post.description }}</p>{% endif %}
+        {% if post.tag %}<p class="tag">{{ post.tag }}</p>{% endif %}
+      </div>
+    </li>
+  {% endfor %}
+</ul>

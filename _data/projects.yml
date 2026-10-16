@@ -1,0 +1,16 @@
+- name: Blogit
+  url: https://github.com/boldbug1/blogit
+  description: A platform for writers to post and manage their blogs.
+  # image: /assets/images/blogit.png
+
+- name: tiny-redis
+  url: https://github.com/boldbug1/tiny-redis
+  description: A Redis implementation from scratch in Go.
+
+- name: 2D graphics engine
+  url: https://github.com/boldbug1/2d-graphics-engine
+  description: A software renderer in C++.
+
+- name: revprox
+  url: https://github.com/boldbug1/revprox
+  description: A reverse proxy in Go.
