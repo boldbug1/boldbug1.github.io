@@ -80,6 +80,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--link); outline-
 
 .body { min-width: 0; }
 .date { color: var(--muted); font-size: 0.9rem; margin: 0; }
+.author { color: var(--muted); font-size: 0.9rem; margin: 0; }
 .title { font-size: 1.2rem; line-height: 1.3; margin: 0.1rem 0 0.3rem; font-weight: 500; overflow-wrap: anywhere; }
 .desc { margin: 0; color: var(--muted); font-size: 0.95rem; }
 .tag {
@@ -93,6 +94,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--link); outline-
 .back { margin: 0 0 2rem; }
 article h1 { font-size: 2rem; line-height: 1.2; overflow-wrap: anywhere; }
 article .date { margin: 0.75rem 0 0; }
+article .author { margin: 0.1rem 0 0; }
 article .tag { margin: 0.1rem 0 0; }
 article .lead { color: var(--muted); font-size: 1.15rem; margin: 1.5rem 0 0; }
 article h3 { font-size: 1.2rem; font-weight: 500; margin: 2rem 0 0.25rem; }

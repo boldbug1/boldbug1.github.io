@@ -36,6 +36,8 @@ layout: default
       {% endif %}
       <div class="body">
         <p class="date">{{ post.date | date: "%b %d, %Y" }}</p>
+        {% assign post_author = post.author | default: site.author %}
+        {% if post_author %}<p class="author">By {{ post_author }}</p>{% endif %}
         <p class="title"><a href="{{ post.url }}">{{ post.title }}</a></p>
         {% if post.description %}<p class="desc">{{ post.description }}</p>{% endif %}
         {% if post.tag %}<p class="tag">{{ post.tag }}</p>{% endif %}
