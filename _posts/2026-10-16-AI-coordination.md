@@ -1,7 +1,6 @@
 ---
 layout: post
 title: What if Agents worked like humans?
-permalink: /what-if-agents-worked-like-humans/
 image: /assets/AI-coordination/shared-mind.png
 author: Boldbug
 ---
