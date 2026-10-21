@@ -6,8 +6,6 @@ permalink: /how-to-kill-the-curiosity-of-a-child/
 image: /assets/curiosity/curious-robot.webp
 ---
 
-# How to Kill the Curiosity of a Child
-
 So, we have all asked questions, right? From our parents, teachers, strangers, elders, and siblings.
 
 Most of the time, we hear a *no*, get a straightforward answer, or hear something like, "That's just how it is." But sometimes, an answer isn't enough. We get the answer to our question, but we still wonder why. So we ask again. And again.
