@@ -99,7 +99,8 @@ article .tag { margin: 0.1rem 0 0; }
 article .lead { color: var(--muted); font-size: 1.15rem; margin: 1.5rem 0 0; }
 article h3 { font-size: 1.2rem; font-weight: 500; margin: 2rem 0 0.25rem; }
 article p { margin: 1rem 0 0; }
-.banner { display: block; width: 100%; max-height: 18rem; object-fit: cover; border-radius: 4px; margin-top: 1.5rem; }
+.banner { display: block; width: 100%; height: auto; border-radius: 4px; margin-top: 1.5rem; }
+article img { display: block; max-width: 100%; height: auto; border-radius: 4px; margin: 1.5rem auto 0; }
 
 pre { overflow-x: auto; padding: 1rem; background: var(--codebg); border: 1px solid var(--rule); border-radius: 4px; margin: 1rem 0 0; }
 code { font-family: "Roboto Mono", ui-monospace, monospace; font-size: 0.88rem; }

@@ -3,7 +3,7 @@ layout: post
 title: How to Kill the Curiosity of a Child
 author: Boldbug
 permalink: /how-to-kill-the-curiosity-of-a-child/
-image: /assets/curiosity/curious-robot.png
+image: /assets/curiosity/curious-robot.webp
 ---
 
 # How to Kill the Curiosity of a Child
@@ -25,7 +25,7 @@ Think about social media. You watch a reel, find it interesting, and get a littl
 
 **Our experiences influence what we repeat, what we avoid, and what we eventually become good at.**
 
-![How the brain's reward system works](/assets/curiosity/reward-system.png)
+![How the brain's reward system works](/assets/curiosity/reward-system.webp)
 
 And if we understand this mechanism, we can use it to become the person we want to be. We'll explore that in another blog. But for now, let's bring it back to children.
 
@@ -99,4 +99,7 @@ And if a child ever asks you a question you don't know the answer to, there's no
 
 "I don't know. Let's find out."
 
+
 > "The greatest discoveries often begin with a simple question that nobody bothered to answer."
+
+*Note: AI was only used for image generation*

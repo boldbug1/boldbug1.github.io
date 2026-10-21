@@ -1,7 +1,7 @@
 - name: Blogit
   url: https://github.com/boldbug1/blogit
   description: A platform for writers to post and manage their blogs.
-  image: /assets/images/blogit-logo.png
+  image: /assets/images/blogit-logo.webp
 
 - name: tiny-redis
   url: https://github.com/boldbug1/tiny-redis
