@@ -10,7 +10,7 @@
 - name: Meow 
   url: https://github.com/boldbug1/2d-graphics-engine
   description: A software renderer in C++.
-  image: assets/images/meow.png
+  image: /assets/images/meow.png
 
 - name: revprox
   url: https://github.com/boldbug1/revprox

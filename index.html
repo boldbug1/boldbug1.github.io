@@ -9,13 +9,11 @@ layout: default
 <p>I like to work on smart machines and simulate real life phenomenons.</p>
 
 <h2>Projects</h2>
-<ul class="cards">
+<ul class="cards projects">
   {% for project in site.data.projects %}
     <li class="card">
       {% if project.image %}
         <img class="thumb sq" src="{{ project.image }}" alt="">
-      {% else %}
-        <div class="thumb sq"></div>
       {% endif %}
       <div class="body">
         <p class="title">

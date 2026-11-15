@@ -68,6 +68,14 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--link); outline-
 }
 .card:first-child { padding-top: 0; }
 
+.cards.projects .card {
+  padding: 0.625rem 0;
+  align-items: center;
+}
+.cards.projects .card:first-child {
+  padding-top: 0;
+}
+
 .thumb {
   flex: none;
   width: 9rem;
@@ -76,7 +84,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--link); outline-
   background: var(--img1);
   object-fit: cover;
 }
-.thumb.sq { width: 5.5rem; height: 5.5rem; }
+.thumb.sq { width: 2.75rem; height: 2.75rem; }
 
 .body { min-width: 0; }
 .date { color: var(--muted); font-size: 0.9rem; margin: 0; }
