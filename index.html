@@ -2,6 +2,9 @@
 layout: default
 ---
 <header>
+  <div class="hero-banner-container">
+    <img class="hero-banner" src="/assets/images/winter-banner.gif" alt="Winter Banner">
+  </div>
   <h1>Ankush Tiwari</h1>
   <p class="handle">Boldbug</p>
 </header>
@@ -9,11 +12,18 @@ layout: default
 <p>I like to work on smart machines and simulate real life phenomenons.</p>
 
 <h2>Projects</h2>
-<ul class="cards projects">
+<ul class="cards">
   {% for project in site.data.projects %}
     <li class="card">
       {% if project.image %}
         <img class="thumb sq" src="{{ project.image }}" alt="">
+      {% else %}
+        <div class="thumb sq default-icon">
+          <svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="16 18 22 12 16 6"></polyline>
+            <polyline points="8 6 2 12 8 18"></polyline>
+          </svg>
+        </div>
       {% endif %}
       <div class="body">
         <p class="title">

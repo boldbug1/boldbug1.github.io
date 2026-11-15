@@ -7,11 +7,6 @@
   url: https://github.com/boldbug1/tiny-redis
   description: A Redis implementation from scratch in Go.
 
-- name: Meow 
-  url: https://github.com/boldbug1/2d-graphics-engine
-  description: A software renderer in C++.
-  image: /assets/images/meow.png
-
 - name: revprox
   url: https://github.com/boldbug1/revprox
   description: A reverse proxy in Go.
