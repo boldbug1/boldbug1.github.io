@@ -1,40 +1,54 @@
 :root {
-  --bg: #f8fafc;
-  --ink: #1e293b;
-  --muted: #64748b;
-  --link: #1d5f7a;
-  --rule: #e2e8f0;
-  --img1: #cbd5e1;
-  --codebg: #f1f5f9;
-  --grid-dot: rgba(30, 41, 59, 0.05);
-  --ambient-glow: radial-gradient(ellipse 75% 35% at 50% 0%, rgba(186, 215, 233, 0.45), transparent 70%);
-  --card-hover: rgba(29, 95, 122, 0.035);
+  --bg: #fbfbf9;
+  --ink: #1c1c1c;
+  --muted: #6b6b66;
+  --link: #0e5a57;
+  --rule: #dcdcd6;
+  --img1: #c9d3d2;
+  --codebg: #f1f1ed;
+  --card-hover: rgba(0, 0, 0, 0.025);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #161616;
+    --ink: #e8e8e4;
+    --muted: #9a9a94;
+    --link: #6fc3bd;
+    --rule: #333;
+    --img1: #2c3636;
+    --codebg: #1f1f1f;
+    --card-hover: rgba(255, 255, 255, 0.035);
+  }
 }
 
 :root[data-theme="dark"] {
-  --bg: #0b0f14;
-  --ink: #e2e8f0;
-  --muted: #8899a6;
-  --link: #7dd3fc;
-  --rule: #1e2630;
-  --img1: #16202a;
-  --codebg: #131920;
-  --grid-dot: rgba(125, 211, 252, 0.055);
-  --ambient-glow: radial-gradient(ellipse 80% 40% at 50% 0%, rgba(56, 189, 248, 0.12), transparent 70%);
-  --card-hover: rgba(125, 211, 252, 0.04);
+  --bg: #161616;
+  --ink: #e8e8e4;
+  --muted: #9a9a94;
+  --link: #6fc3bd;
+  --rule: #333;
+  --img1: #2c3636;
+  --codebg: #1f1f1f;
+  --card-hover: rgba(255, 255, 255, 0.035);
+}
+
+:root[data-theme="light"] {
+  --bg: #fbfbf9;
+  --ink: #1c1c1c;
+  --muted: #6b6b66;
+  --link: #0e5a57;
+  --rule: #dcdcd6;
+  --img1: #c9d3d2;
+  --codebg: #f1f1ed;
+  --card-hover: rgba(0, 0, 0, 0.025);
 }
 
 * { box-sizing: border-box; }
 
 body {
   margin: 0;
-  background-color: var(--bg);
-  background-image: 
-    var(--ambient-glow),
-    radial-gradient(var(--grid-dot) 1px, transparent 1px);
-  background-size: 100% 500px, 24px 24px;
-  background-repeat: no-repeat, repeat;
-  background-attachment: scroll, fixed;
+  background: var(--bg);
   color: var(--ink);
   font-family: Roboto, system-ui, sans-serif;
   font-size: 1.05rem;
@@ -47,7 +61,7 @@ main, footer {
   padding: 0 1.25rem;
 }
 
-main { padding-top: 3.5rem; }
+main { padding-top: 4rem; }
 
 h1 { font-size: 2.6rem; line-height: 1.1; margin: 0; font-weight: 700; }
 
@@ -57,26 +71,6 @@ h2 {
   margin: 2.5rem 0 1rem;
   padding-top: 1rem;
   border-top: 1px solid var(--rule);
-}
-
-/* Hero Banner */
-.hero-banner-container {
-  width: 100%;
-  height: 13rem;
-  border-radius: 8px;
-  overflow: hidden;
-  margin-bottom: 1.75rem;
-  border: 1px solid var(--rule);
-  position: relative;
-  background: var(--codebg);
-}
-
-.hero-banner {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center 40%;
-  display: block;
 }
 
 .handle {
@@ -100,6 +94,8 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--link); outline-
   border-radius: 6px;
   transition: background-color 0.15s ease;
 }
+.card:first-child { padding-top: 0.75rem; }
+.card:last-child { border-bottom: none; }
 .card:hover {
   background-color: var(--card-hover);
 }
